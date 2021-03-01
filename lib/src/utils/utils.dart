@@ -1,11 +1,8 @@
-import 'dart:io';
-
+import 'package:demomachinetest/src/utils/object_factory.dart';
 import 'package:demomachinetest/src/widgets/cancel_alert_box.dart';
 import 'package:demomachinetest/src/widgets/otp_message.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import 'api_client.dart';
 
 ///it contain common functions
 class Utils {}
@@ -135,4 +132,23 @@ void showToastConnection(String msg) {
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
   );
+}
+
+int addCounter(int valueFromCounter) {
+  int value = valueFromCounter + 1;
+  int cartCount = ObjectFactory().appHive.getCartCount();
+  cartCount = cartCount + 1;
+  ObjectFactory().appHive.putCartCount(value: cartCount);
+  return value;
+}
+
+int decrementCounter(int valueFromCounter) {
+  int value = valueFromCounter;
+  if (valueFromCounter > 0) {
+    value = valueFromCounter - 1;
+    int cartCount = ObjectFactory().appHive.getCartCount();
+    cartCount = cartCount - 1;
+    ObjectFactory().appHive.putCartCount(value: cartCount);
+  }
+  return value;
 }

@@ -8,6 +8,7 @@ class AppHive {
   static const String _PHOTOURL = 'photourl';
   static const String _EMAIL = 'email';
   static const String _UID = 'uid';
+  static const String _CARTCOUNT = 'cartcount';
 
   void hivePutString({String key, String value}) async {
     await Hive.box(Constants.BOX_NAME).put(key, value);
@@ -79,6 +80,14 @@ class AppHive {
 
   getUid() {
     return hiveGetString(key: _UID);
+  }
+
+  putCartCount({int value}) {
+    return hivePutInt(key: _CARTCOUNT, value: value);
+  }
+
+  getCartCount() {
+    return hiveGetInt(key: _CARTCOUNT);
   }
 
   void hiveClear() {

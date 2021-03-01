@@ -1,3 +1,3 @@
-class Urls{
-  static final baseUrl = "http://158.69.138.44:9083";
+class Urls {
+  static final baseUrl = "https://www.mocky.io/v2/5dfccffc310000efc8d2c1ad";
 }

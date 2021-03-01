@@ -81,14 +81,10 @@ class _GetPhoneNumberState extends State<GetPhoneNumber> {
                           .verifyPhone(
                               int.parse(textEditingControllerMobileNumber.text))
                           .then((value) {
-                        if (value == "Success") {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => OTPEnter()));
-                        } else {
-                          showToast(value.toString());
-                        }
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OTPEnter()));
                       });
                       print("mobile entered is " +
                           textEditingControllerMobileNumber.text);

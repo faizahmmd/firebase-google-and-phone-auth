@@ -18,6 +18,7 @@ class Constants {
     Colors.grey, //5
     Color.fromRGBO(60, 80, 20, 0),
     Colors.transparent,
+    Colors.red
   ];
 
   ///card size

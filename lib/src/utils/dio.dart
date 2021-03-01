@@ -47,46 +47,17 @@ class AppDio {
   }
 
   ///dio get
-  Future<Response> get({String url, HeaderModel header}) {
-    dio.options.headers.addAll({
-      "X-Session": header.xSession,
-      "X-RequestTime": header.xRequestTime,
-      "X-UDID": header.xUdid,
-      "X-ReferenceId": header.xReferenceId,
-      "X-AccessMode": header.xAccessMode,
-      "X-User": header.xUserId,
-      "X-UserId": header.xUserId,
-      "Authorization": header.authorization
-    });
-
+  Future<Response> get({String url}) {
+    // dio.options.headers.addAll({
+    //   "Authorization": header.authorization
+    // });
+    print("url is : " + url);
     return dio.get(url);
-  }
-
-  ///dio login post
-  Future<Response> loginPost({String url, HeaderModel header, var data}) {
-    dio.options.headers.addAll({
-      "X-Session": header.xSession,
-      "X-RequestTime": header.xRequestTime,
-      "X-UDID": header.xUdid,
-      "X-ReferenceId": header.xReferenceId,
-      "X-AccessMode": header.xAccessMode,
-    });
-
-    return dio.post(url, data: data);
   }
 
   ///dio  post
   Future<Response> post({String url, HeaderModel header, var data}) {
-    dio.options.headers.addAll({
-      "X-Session": header.xSession,
-      "X-RequestTime": header.xRequestTime,
-      "X-UDID": header.xUdid,
-      "X-ReferenceId": header.xReferenceId,
-      "X-AccessMode": header.xAccessMode,
-      "X-User": header.xUserId,
-      "X-UserId": header.xUserId,
-      "Authorization": header.authorization
-    });
+    dio.options.headers.addAll({"Authorization": header.authorization});
 
     return dio.post(url, data: data);
   }

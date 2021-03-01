@@ -1,6 +1,8 @@
 import 'package:demomachinetest/auth_service/firebase_auth.dart';
 import 'package:demomachinetest/hive/hive.dart';
+import 'package:demomachinetest/src/resources/repository/repository.dart';
 
+import 'api_client.dart';
 import 'dio.dart';
 
 /// it is a hub that connecting pref,repo,client
@@ -15,21 +17,21 @@ class ObjectFactory {
   ///Initialisation of Objects
   AppHive _appHive = AppHive();
   Auth _authClassObject = Auth();
-  //ApiClient _apiClient = ApiClient();
+  ApiClient _apiClient = ApiClient();
   AppDio _appDio = AppDio();
-  // Repository _repository = Repository();
+  Repository _repository = Repository();
 
   ///
   /// Getters of Objects
   ///
-  // ApiClient get apiClient => _apiClient;
+  ApiClient get apiClient => _apiClient;
   AppDio get appDio => _appDio;
 
   AppHive get appHive => _appHive;
 
   Auth get authClassObject => _authClassObject;
 
-  // Repository get repository => _repository;
+  Repository get repository => _repository;
 
   ///
   /// Setters of Objects
