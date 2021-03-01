@@ -9,6 +9,7 @@ import 'home_page_list_view_image_widget.dart';
 class HomePageListViewBodyWidget extends StatefulWidget {
   final String dishName, sar, calories, description, imagePath;
   final addOnCategoryAvailabilityStatus;
+  final bool nonVegetarian;
 
   HomePageListViewBodyWidget(
       {this.dishName,
@@ -16,7 +17,8 @@ class HomePageListViewBodyWidget extends StatefulWidget {
       this.calories,
       this.description,
       this.imagePath,
-      this.addOnCategoryAvailabilityStatus});
+      this.addOnCategoryAvailabilityStatus,
+      this.nonVegetarian});
 
   @override
   _HomePageListViewBodyWidgetState createState() =>
@@ -42,7 +44,9 @@ class _HomePageListViewBodyWidgetState
                 Padding(
                   padding: EdgeInsets.only(
                       top: screenHeight(context, dividedBy: 130)),
-                  child: HomePageListViewIcon(),
+                  child: HomePageListViewIcon(
+                    nonVegetarian: widget.nonVegetarian,
+                  ),
                 ),
                 SizedBox(
                   width: screenWidth(context, dividedBy: 30.0),

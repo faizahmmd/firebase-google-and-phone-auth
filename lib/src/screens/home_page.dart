@@ -38,11 +38,13 @@ class _HomePageState extends State<HomePage> {
     });
     super.initState();
   }
-@override
+
+  @override
   void dispose() {
     _userBloc.dispose();
     super.dispose();
   }
+
   @override
   void didChangeDependencies() async {
     await FlutterStatusbarManager.setColor(Constants.kitGradients[4]);
@@ -152,6 +154,13 @@ class _HomePageState extends State<HomePage> {
                                                       0
                                                   ? true
                                                   : false,
+                                          nonVegetarian: _dishListResponse
+                                                      .tableMenuList[0]
+                                                      .categoryDishes[index]
+                                                      .dishType ==
+                                                  1
+                                              ? true
+                                              : false,
                                         );
                                       })
                                   : Center(
@@ -209,6 +218,13 @@ class _HomePageState extends State<HomePage> {
                                                       0
                                                   ? true
                                                   : false,
+                                          nonVegetarian: _dishListResponse
+                                                      .tableMenuList[1]
+                                                      .categoryDishes[index]
+                                                      .dishType ==
+                                                  1
+                                              ? true
+                                              : false,
                                         );
                                       })
                                   : Center(
@@ -266,6 +282,13 @@ class _HomePageState extends State<HomePage> {
                                                       0
                                                   ? true
                                                   : false,
+                                          nonVegetarian: _dishListResponse
+                                                      .tableMenuList[2]
+                                                      .categoryDishes[index]
+                                                      .dishType ==
+                                                  1
+                                              ? true
+                                              : false,
                                         );
                                       })
                                   : Center(
@@ -323,6 +346,13 @@ class _HomePageState extends State<HomePage> {
                                                       0
                                                   ? true
                                                   : false,
+                                          nonVegetarian: _dishListResponse
+                                                      .tableMenuList[3]
+                                                      .categoryDishes[index]
+                                                      .dishType ==
+                                                  1
+                                              ? true
+                                              : false,
                                         );
                                       })
                                   : Center(
@@ -380,6 +410,13 @@ class _HomePageState extends State<HomePage> {
                                                       0
                                                   ? true
                                                   : false,
+                                          nonVegetarian: _dishListResponse
+                                                      .tableMenuList[4]
+                                                      .categoryDishes[index]
+                                                      .dishType ==
+                                                  1
+                                              ? true
+                                              : false,
                                         );
                                       })
                                   : Center(
@@ -437,6 +474,13 @@ class _HomePageState extends State<HomePage> {
                                                       0
                                                   ? true
                                                   : false,
+                                          nonVegetarian: _dishListResponse
+                                                      .tableMenuList[5]
+                                                      .categoryDishes[index]
+                                                      .dishType ==
+                                                  1
+                                              ? true
+                                              : false,
                                         );
                                       })
                                   : Center(
