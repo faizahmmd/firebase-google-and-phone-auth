@@ -42,16 +42,18 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: screenHeight(context, dividedBy: 15.0),
+              // height: screenHeight(context, dividedBy: 15.0),
               child: IconButton(
                   icon: SvgPicture.asset(
                     'assets/icons/menu.svg',
                     color: Constants.kitGradients[5],
+                    height: 25.0,
+                    width: 25.0,
                   ),
                   onPressed: widget.onTapLeftIcon),
             ),
             Container(
-              height: screenHeight(context, dividedBy: 15.0),
+              // height: screenHeight(context, dividedBy: 15.0),
               // color: Colors.greenAccent,
               child: Stack(
                 children: [
@@ -59,6 +61,8 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
                       icon: SvgPicture.asset(
                         'assets/icons/shopping_cart_icon.svg',
                         color: Constants.kitGradients[5],
+                        height: 25.0,
+                        width: 25.0,
                       ),
                       onPressed: widget.onTapRightIcon),
                   Positioned(

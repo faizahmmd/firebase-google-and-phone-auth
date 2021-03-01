@@ -38,7 +38,11 @@ class _HomePageState extends State<HomePage> {
     });
     super.initState();
   }
-
+@override
+  void dispose() {
+    _userBloc.dispose();
+    super.dispose();
+  }
   @override
   void didChangeDependencies() async {
     await FlutterStatusbarManager.setColor(Constants.kitGradients[4]);

@@ -5,7 +5,7 @@ import 'package:demomachinetest/src/utils/object_factory.dart';
 class UserApiProvider {
   Future<State> getDishList() async {
     final response = await ObjectFactory().apiClient.getDishList();
-    print(response.toString());
+    //print(response.toString());
     if (response.statusCode == 200) {
       return State<GetDishListResponse>.success(
           GetDishListResponse.fromJson(response.data[0]));

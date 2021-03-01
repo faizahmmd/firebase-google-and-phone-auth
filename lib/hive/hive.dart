@@ -3,13 +3,6 @@ import 'package:hive/hive.dart';
 import '../src/utils/constants.dart';
 
 class AppHive {
-  static const String _TOKEN = "token";
-  static const String _DISPLAYNAME = 'displayname';
-  static const String _PHOTOURL = 'photourl';
-  static const String _EMAIL = 'email';
-  static const String _UID = 'uid';
-  static const String _CARTCOUNT = 'cartcount';
-
   void hivePutString({String key, String value}) async {
     await Hive.box(Constants.BOX_NAME).put(key, value);
   }
@@ -39,11 +32,11 @@ class AppHive {
   }
 
   putToken({String token}) {
-    return hivePutString(key: _TOKEN, value: token);
+    return hivePutString(key: Constants.TOKEN, value: token);
   }
 
   getToken() {
-    return hiveGetString(key: _TOKEN);
+    return hiveGetString(key: Constants.TOKEN);
   }
 
   void deleteToken() {
@@ -51,43 +44,43 @@ class AppHive {
   }
 
   displayNamePut({String value}) {
-    return hivePutString(key: _DISPLAYNAME, value: value);
+    return hivePutString(key: Constants.DISPLAYNAME, value: value);
   }
 
   getDisplayName() {
-    return hiveGetString(key: _DISPLAYNAME);
+    return hiveGetString(key: Constants.DISPLAYNAME);
   }
 
   putPhotoUrl({String value}) {
-    return hivePutString(key: _PHOTOURL, value: value);
+    return hivePutString(key: Constants.PHOTOURL, value: value);
   }
 
   getPhotoUrl() {
-    return hiveGetString(key: _PHOTOURL);
+    return hiveGetString(key: Constants.PHOTOURL);
   }
 
   putEmail({String value}) {
-    return hivePutString(key: _EMAIL, value: value);
+    return hivePutString(key: Constants.EMAIL, value: value);
   }
 
   getEmail() {
-    return hiveGetString(key: _EMAIL);
+    return hiveGetString(key: Constants.EMAIL);
   }
 
   putUid({String value}) {
-    return hivePutString(key: _UID, value: value);
+    return hivePutString(key: Constants.UID, value: value);
   }
 
   getUid() {
-    return hiveGetString(key: _UID);
+    return hiveGetString(key: Constants.UID);
   }
 
   putCartCount({int value}) {
-    return hivePutInt(key: _CARTCOUNT, value: value);
+    return hivePutInt(key: Constants.CARTCOUNT, value: value);
   }
 
   getCartCount() {
-    return hiveGetInt(key: _CARTCOUNT);
+    return hiveGetInt(key: Constants.CARTCOUNT);
   }
 
   void hiveClear() {
