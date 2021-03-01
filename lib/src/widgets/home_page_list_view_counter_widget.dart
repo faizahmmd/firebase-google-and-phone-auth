@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePageListViewWidgetCounter extends StatefulWidget {
+  final Function addCounterValue, subtractCounterValue;
+  int counterValue;
+  HomePageListViewWidgetCounter(
+      {this.addCounterValue, this.subtractCounterValue, this.counterValue});
   @override
   _HomePageListViewWidgetCounterState createState() =>
       _HomePageListViewWidgetCounterState();
@@ -11,14 +15,13 @@ class HomePageListViewWidgetCounter extends StatefulWidget {
 
 class _HomePageListViewWidgetCounterState
     extends State<HomePageListViewWidgetCounter> {
-  int counterValue = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: screenWidth(context, dividedBy: 3.0),
       height: screenHeight(context, dividedBy: 18.0),
       decoration: BoxDecoration(
-          color: Constants.kitGradients[4].withOpacity(0.7),
+          color: Constants.kitGradients[4],
           borderRadius: BorderRadius.circular(20.0)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -40,11 +43,7 @@ class _HomePageListViewWidgetCounterState
                 ),
               ),
             ),
-            onTap: () {
-              setState(() {
-                counterValue = decrementCounter(counterValue);
-              });
-            },
+            onTap: widget.subtractCounterValue,
           ),
           Container(
             width: screenWidth(context, dividedBy: 12.0),
@@ -52,7 +51,7 @@ class _HomePageListViewWidgetCounterState
             color: Colors.transparent,
             child: Center(
               child: Text(
-                counterValue.toString(),
+                widget.counterValue.toString(),
                 overflow: TextOverflow.visible,
                 style: TextStyle(
                     color: Constants.kitGradients[0],
@@ -77,11 +76,7 @@ class _HomePageListViewWidgetCounterState
                 ),
               ),
             ),
-            onTap: () {
-              setState(() {
-                counterValue = addCounter(counterValue);
-              });
-            },
+            onTap: widget.addCounterValue,
           ),
         ],
       ),

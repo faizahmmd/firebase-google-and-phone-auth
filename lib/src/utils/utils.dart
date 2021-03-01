@@ -1,4 +1,3 @@
-import 'package:demomachinetest/src/utils/object_factory.dart';
 import 'package:demomachinetest/src/widgets/cancel_alert_box.dart';
 import 'package:demomachinetest/src/widgets/otp_message.dart';
 import 'package:flutter/material.dart';
@@ -136,9 +135,6 @@ void showToastConnection(String msg) {
 
 int addCounter(int valueFromCounter) {
   int value = valueFromCounter + 1;
-  int cartCount = ObjectFactory().appHive.getCartCount();
-  cartCount = cartCount + 1;
-  ObjectFactory().appHive.putCartCount(value: cartCount);
   return value;
 }
 
@@ -146,9 +142,23 @@ int decrementCounter(int valueFromCounter) {
   int value = valueFromCounter;
   if (valueFromCounter > 0) {
     value = valueFromCounter - 1;
-    int cartCount = ObjectFactory().appHive.getCartCount();
-    cartCount = cartCount - 1;
-    ObjectFactory().appHive.putCartCount(value: cartCount);
   }
   return value;
+}
+
+int cartItemsTotal(List<int> a, List<int> b, List<int> c, List<int> d,
+    List<int> e, List<int> f) {
+  int sum1 = 0;
+  int sum2 = 0;
+  int sum3 = 0;
+  int sum4 = 0;
+  int sum5 = 0;
+  int sum6 = 0;
+  a.forEach((e) => sum1 += e);
+  b.forEach((e) => sum2 += e);
+  c.forEach((e) => sum3 += e);
+  d.forEach((e) => sum4 += e);
+  e.forEach((e) => sum5 += e);
+  f.forEach((e) => sum6 += e);
+  return (sum1 + sum2 + sum3 + sum4 + sum5 + sum6);
 }

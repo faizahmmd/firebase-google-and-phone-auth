@@ -7,13 +7,18 @@ import 'home_page_list_view_counter_widget.dart';
 class HomePageListViewBodyDishDetails extends StatefulWidget {
   final String dishName, sar, calories, description;
   final bool addOnCategoryAvailabilityStatus;
+  final Function addCounterValue, subtractCounterValue;
+  int counterValue;
 
   HomePageListViewBodyDishDetails(
       {this.dishName,
       this.sar,
       this.calories,
       this.description,
-      this.addOnCategoryAvailabilityStatus});
+      this.addOnCategoryAvailabilityStatus,
+      this.addCounterValue,
+      this.subtractCounterValue,
+      this.counterValue});
 
   @override
   _HomePageListViewBodyDishDetailsState createState() =>
@@ -84,7 +89,11 @@ class _HomePageListViewBodyDishDetailsState
           SizedBox(
             height: screenHeight(context, dividedBy: 60.0),
           ),
-          HomePageListViewWidgetCounter(),
+          HomePageListViewWidgetCounter(
+            addCounterValue: widget.addCounterValue,
+            subtractCounterValue: widget.subtractCounterValue,
+            counterValue: widget.counterValue,
+          ),
           SizedBox(
             height: screenHeight(context, dividedBy: 60.0),
           ),

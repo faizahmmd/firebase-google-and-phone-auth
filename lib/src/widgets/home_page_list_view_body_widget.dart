@@ -10,6 +10,8 @@ class HomePageListViewBodyWidget extends StatefulWidget {
   final String dishName, sar, calories, description, imagePath;
   final addOnCategoryAvailabilityStatus;
   final bool nonVegetarian;
+  final Function addCounterValue, subtractCounterValue;
+  int counterValue;
 
   HomePageListViewBodyWidget(
       {this.dishName,
@@ -18,7 +20,10 @@ class HomePageListViewBodyWidget extends StatefulWidget {
       this.description,
       this.imagePath,
       this.addOnCategoryAvailabilityStatus,
-      this.nonVegetarian});
+      this.nonVegetarian,
+      this.subtractCounterValue,
+      this.addCounterValue,
+      this.counterValue});
 
   @override
   _HomePageListViewBodyWidgetState createState() =>
@@ -58,6 +63,9 @@ class _HomePageListViewBodyWidgetState
                   description: widget.description,
                   addOnCategoryAvailabilityStatus:
                       widget.addOnCategoryAvailabilityStatus,
+                  addCounterValue: widget.addCounterValue,
+                  subtractCounterValue: widget.subtractCounterValue,
+                  counterValue: widget.counterValue,
                 ),
                 SizedBox(
                   width: screenWidth(context, dividedBy: 150.0),

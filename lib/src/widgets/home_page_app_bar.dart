@@ -1,5 +1,4 @@
 import 'package:demomachinetest/src/utils/constants.dart';
-import 'package:demomachinetest/src/utils/object_factory.dart';
 import 'package:demomachinetest/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -7,26 +6,20 @@ import 'package:flutter_svg/svg.dart';
 
 class HomePageAppBar extends StatefulWidget {
   final Function onTapLeftIcon, onTapRightIcon;
+  int cartCount;
 
-  HomePageAppBar({this.onTapLeftIcon, this.onTapRightIcon});
+  HomePageAppBar({this.onTapLeftIcon, this.onTapRightIcon, this.cartCount});
 
   @override
   _HomePageAppBarState createState() => _HomePageAppBarState();
 }
 
 class _HomePageAppBarState extends State<HomePageAppBar> {
-  int cartCount;
   @override
   void initState() {
-    if (ObjectFactory().appHive.getCartCount() == null) {
-      setState(() {
-        cartCount = 0;
-      });
-    } else {
-      setState(() {
-        cartCount = ObjectFactory().appHive.getCartCount();
-      });
-    }
+    setState(() {
+      widget.cartCount = 0;
+    });
     super.initState();
   }
 
@@ -76,7 +69,7 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
                           borderRadius: BorderRadius.circular(15.0)),
                       child: Center(
                         child: Text(
-                          cartCount.toString(),
+                          widget.cartCount.toString(),
                           overflow: TextOverflow.visible,
                           style: TextStyle(
                               color: Constants.kitGradients[0],
