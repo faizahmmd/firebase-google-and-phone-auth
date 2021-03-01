@@ -68,7 +68,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   height: screenHeight(context, dividedBy: 105),
                 ),
                 Container(
-                  width: 300.0,
+                  width: 100.0,
                   height: 18.0,
                   child: Text(
                     ObjectFactory().appHive.getUid() != null
