@@ -21,12 +21,6 @@ class _HomePageState extends State<HomePage> {
   UserBloc _userBloc = UserBloc();
   List<bool> loadingStatusArray;
   GetDishListResponse _dishListResponse = GetDishListResponse();
-  List<int> saladsCounterValuArray = [];
-  List<int> benyardCounterValuArray = [];
-  List<int> henCounterValuArray = [];
-  List<int> seaCounterValuArray = [];
-  List<int> biryaniCounterValuArray = [];
-  List<int> fastFoodCounterValuArray = [];
   List<List<int>> arrayFromUtil = [];
   int cartCount;
 
@@ -46,12 +40,6 @@ class _HomePageState extends State<HomePage> {
         _dishListResponse = event;
       });
       arrayFromUtil = counterValueCalculations(event);
-      saladsCounterValuArray = arrayFromUtil[0];
-      benyardCounterValuArray = arrayFromUtil[1];
-      henCounterValuArray = arrayFromUtil[2];
-      seaCounterValuArray = arrayFromUtil[3];
-      biryaniCounterValuArray = arrayFromUtil[4];
-      fastFoodCounterValuArray = arrayFromUtil[5];
     });
     super.initState();
   }
@@ -86,12 +74,12 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => CartPage(
-                            saladsCounterValuArray: saladsCounterValuArray,
-                            benyardCounterValuArray: benyardCounterValuArray,
-                            henCounterValuArray: henCounterValuArray,
-                            seaCounterValuArray: seaCounterValuArray,
-                            biryaniCounterValuArray: biryaniCounterValuArray,
-                            fastFoodCounterValuArray: fastFoodCounterValuArray,
+                            saladsCounterValuArray: arrayFromUtil[0],
+                            benyardCounterValuArray: arrayFromUtil[1],
+                            henCounterValuArray: arrayFromUtil[2],
+                            seaCounterValuArray: arrayFromUtil[3],
+                            biryaniCounterValuArray: arrayFromUtil[4],
+                            fastFoodCounterValuArray: arrayFromUtil[5],
                             getDishesResponse: _dishListResponse,
                           )));
             },
@@ -184,35 +172,32 @@ class _HomePageState extends State<HomePage> {
                                           : false,
                                       addCounterValue: () {
                                         setState(() {
-                                          saladsCounterValuArray[index] =
-                                              addCounter(saladsCounterValuArray[
-                                                  index]);
+                                          arrayFromUtil[0][index] = addCounter(
+                                              arrayFromUtil[0][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
                                       subtractCounterValue: () {
                                         setState(() {
-                                          saladsCounterValuArray[index] =
+                                          arrayFromUtil[0][index] =
                                               decrementCounter(
-                                                  saladsCounterValuArray[
-                                                      index]);
+                                                  arrayFromUtil[0][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
-                                      counterValue:
-                                          saladsCounterValuArray[index],
+                                      counterValue: arrayFromUtil[0][index],
                                     );
                                   })
                               : Center(
@@ -268,36 +253,32 @@ class _HomePageState extends State<HomePage> {
                                           : false,
                                       addCounterValue: () {
                                         setState(() {
-                                          benyardCounterValuArray[index] =
-                                              addCounter(
-                                                  benyardCounterValuArray[
-                                                      index]);
+                                          arrayFromUtil[1][index] = addCounter(
+                                              arrayFromUtil[1][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
                                       subtractCounterValue: () {
                                         setState(() {
-                                          benyardCounterValuArray[index] =
+                                          arrayFromUtil[1][index] =
                                               decrementCounter(
-                                                  benyardCounterValuArray[
-                                                      index]);
+                                                  arrayFromUtil[1][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
-                                      counterValue:
-                                          benyardCounterValuArray[index],
+                                      counterValue: arrayFromUtil[1][index],
                                     );
                                   })
                               : Center(
@@ -353,33 +334,32 @@ class _HomePageState extends State<HomePage> {
                                           : false,
                                       addCounterValue: () {
                                         setState(() {
-                                          henCounterValuArray[index] =
-                                              addCounter(
-                                                  henCounterValuArray[index]);
+                                          arrayFromUtil[2][index] = addCounter(
+                                              arrayFromUtil[2][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
                                       subtractCounterValue: () {
                                         setState(() {
-                                          henCounterValuArray[index] =
+                                          arrayFromUtil[2][index] =
                                               decrementCounter(
-                                                  henCounterValuArray[index]);
+                                                  arrayFromUtil[2][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
-                                      counterValue: henCounterValuArray[index],
+                                      counterValue: arrayFromUtil[2][index],
                                     );
                                   })
                               : Center(
@@ -435,33 +415,32 @@ class _HomePageState extends State<HomePage> {
                                           : false,
                                       addCounterValue: () {
                                         setState(() {
-                                          seaCounterValuArray[index] =
-                                              addCounter(
-                                                  seaCounterValuArray[index]);
+                                          arrayFromUtil[3][index] = addCounter(
+                                              arrayFromUtil[3][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
                                       subtractCounterValue: () {
                                         setState(() {
-                                          seaCounterValuArray[index] =
+                                          arrayFromUtil[3][index] =
                                               decrementCounter(
-                                                  seaCounterValuArray[index]);
+                                                  arrayFromUtil[3][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
-                                      counterValue: seaCounterValuArray[index],
+                                      counterValue: arrayFromUtil[3][index],
                                     );
                                   })
                               : Center(
@@ -517,36 +496,32 @@ class _HomePageState extends State<HomePage> {
                                           : false,
                                       addCounterValue: () {
                                         setState(() {
-                                          biryaniCounterValuArray[index] =
-                                              addCounter(
-                                                  biryaniCounterValuArray[
-                                                      index]);
+                                          arrayFromUtil[4][index] = addCounter(
+                                              arrayFromUtil[4][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
                                       subtractCounterValue: () {
                                         setState(() {
-                                          biryaniCounterValuArray[index] =
+                                          arrayFromUtil[4][index] =
                                               decrementCounter(
-                                                  biryaniCounterValuArray[
-                                                      index]);
+                                                  arrayFromUtil[4][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
-                                      counterValue:
-                                          biryaniCounterValuArray[index],
+                                      counterValue: arrayFromUtil[4][index],
                                     );
                                   })
                               : Center(
@@ -602,36 +577,32 @@ class _HomePageState extends State<HomePage> {
                                           : false,
                                       addCounterValue: () {
                                         setState(() {
-                                          fastFoodCounterValuArray[index] =
-                                              addCounter(
-                                                  fastFoodCounterValuArray[
-                                                      index]);
+                                          arrayFromUtil[5][index] = addCounter(
+                                              arrayFromUtil[5][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
                                       subtractCounterValue: () {
                                         setState(() {
-                                          fastFoodCounterValuArray[index] =
+                                          arrayFromUtil[5][index] =
                                               decrementCounter(
-                                                  fastFoodCounterValuArray[
-                                                      index]);
+                                                  arrayFromUtil[5][index]);
                                           cartCount = cartItemsTotal(
-                                              saladsCounterValuArray,
-                                              benyardCounterValuArray,
-                                              henCounterValuArray,
-                                              seaCounterValuArray,
-                                              biryaniCounterValuArray,
-                                              fastFoodCounterValuArray);
+                                              arrayFromUtil[0],
+                                              arrayFromUtil[1],
+                                              arrayFromUtil[2],
+                                              arrayFromUtil[3],
+                                              arrayFromUtil[4],
+                                              arrayFromUtil[5]);
                                         });
                                       },
-                                      counterValue:
-                                          fastFoodCounterValuArray[index],
+                                      counterValue: arrayFromUtil[5][index],
                                     );
                                   })
                               : Center(
