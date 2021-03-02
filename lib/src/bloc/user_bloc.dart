@@ -17,10 +17,6 @@ class UserBloc extends Object with Validators implements BaseBloc {
   StreamController<GetDishListResponse> _getDishListStreamController =
       new StreamController<GetDishListResponse>.broadcast();
 
-  // ignore: close_sinks
-
-  // stream controller is broadcasting the  details
-
   /// stream for progress bar
   Stream<bool> get loadingListener => _loading.stream;
 
