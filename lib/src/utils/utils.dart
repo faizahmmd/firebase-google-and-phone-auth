@@ -1,3 +1,5 @@
+import 'package:demomachinetest/src/models/get_dish_list_response.dart';
+import 'package:demomachinetest/src/models/model_class_for_get_selected_dish_names_function_in_utils.dart';
 import 'package:demomachinetest/src/widgets/cancel_alert_box.dart';
 import 'package:demomachinetest/src/widgets/otp_message.dart';
 import 'package:flutter/material.dart';
@@ -302,4 +304,128 @@ List<List<int>> counterValueCalculations(event) {
   // print("biryaniCounterValuArray is " + biryaniCounterValuArray.toString());
   // print("fastFoodCounterValuArray is " + fastFoodCounterValuArray.toString());
   return arrayForReturn;
+}
+
+GetSelectedDishNamesModelClassForUtils getSelectedDishNames(
+    {List<int> saladsCounterValuArray,
+    List<int> benyardCounterValuArray,
+    List<int> henCounterValuArray,
+    List<int> seaCounterValuArray,
+    List<int> biryaniCounterValuArray,
+    List<int> fastFoodCounterValuArray,
+    GetDishListResponse getDishesResponse}) {
+  List<String> selectedDishesNamesArray = [];
+  List<double> selectedDishesPricesArray = [];
+  List<String> selectedDishesCalorieArray = [];
+  List<String> selectedDishesCountsArray = [];
+
+  selectedDishesNamesArray.clear();
+  selectedDishesPricesArray.clear();
+  selectedDishesCalorieArray.clear();
+  selectedDishesCountsArray.clear();
+
+  GetSelectedDishNamesModelClassForUtils
+      getSelectedDishNamesModelClassForUtils =
+      GetSelectedDishNamesModelClassForUtils();
+
+  for (int i = 0; i < saladsCounterValuArray.length; i++) {
+    if (saladsCounterValuArray[i] > 0) {
+      selectedDishesNamesArray
+          .add(getDishesResponse.tableMenuList[0].categoryDishes[i].dishName);
+      selectedDishesPricesArray
+          .add(getDishesResponse.tableMenuList[0].categoryDishes[i].dishPrice);
+      selectedDishesCalorieArray.add(getDishesResponse
+          .tableMenuList[0].categoryDishes[i].dishCalories
+          .toString());
+      selectedDishesCountsArray.add(saladsCounterValuArray[i].toString());
+    }
+  }
+  for (int i = 0; i < benyardCounterValuArray.length; i++) {
+    if (benyardCounterValuArray[i] > 0) {
+      selectedDishesNamesArray
+          .add(getDishesResponse.tableMenuList[1].categoryDishes[i].dishName);
+      selectedDishesPricesArray
+          .add(getDishesResponse.tableMenuList[1].categoryDishes[i].dishPrice);
+      selectedDishesCalorieArray.add(getDishesResponse
+          .tableMenuList[1].categoryDishes[i].dishCalories
+          .toString());
+      selectedDishesCountsArray.add(benyardCounterValuArray[i].toString());
+    }
+  }
+  for (int i = 0; i < henCounterValuArray.length; i++) {
+    if (henCounterValuArray[i] > 0) {
+      selectedDishesNamesArray
+          .add(getDishesResponse.tableMenuList[2].categoryDishes[i].dishName);
+      selectedDishesPricesArray
+          .add(getDishesResponse.tableMenuList[2].categoryDishes[i].dishPrice);
+      selectedDishesCalorieArray.add(getDishesResponse
+          .tableMenuList[2].categoryDishes[i].dishCalories
+          .toString());
+      selectedDishesCountsArray.add(henCounterValuArray[i].toString());
+    }
+  }
+  for (int i = 0; i < seaCounterValuArray.length; i++) {
+    if (seaCounterValuArray[i] > 0) {
+      selectedDishesNamesArray
+          .add(getDishesResponse.tableMenuList[3].categoryDishes[i].dishName);
+      selectedDishesPricesArray
+          .add(getDishesResponse.tableMenuList[3].categoryDishes[i].dishPrice);
+      selectedDishesCalorieArray.add(getDishesResponse
+          .tableMenuList[3].categoryDishes[i].dishCalories
+          .toString());
+      selectedDishesCountsArray.add(seaCounterValuArray[i].toString());
+    }
+  }
+  for (int i = 0; i < biryaniCounterValuArray.length; i++) {
+    if (biryaniCounterValuArray[i] > 0) {
+      selectedDishesNamesArray
+          .add(getDishesResponse.tableMenuList[4].categoryDishes[i].dishName);
+      selectedDishesPricesArray
+          .add(getDishesResponse.tableMenuList[4].categoryDishes[i].dishPrice);
+      selectedDishesCalorieArray.add(getDishesResponse
+          .tableMenuList[4].categoryDishes[i].dishCalories
+          .toString());
+      selectedDishesCountsArray.add(biryaniCounterValuArray[i].toString());
+    }
+  }
+  for (int i = 0; i < fastFoodCounterValuArray.length; i++) {
+    if (fastFoodCounterValuArray[i] > 0) {
+      selectedDishesNamesArray
+          .add(getDishesResponse.tableMenuList[5].categoryDishes[i].dishName);
+      selectedDishesPricesArray
+          .add(getDishesResponse.tableMenuList[5].categoryDishes[i].dishPrice);
+      selectedDishesCalorieArray.add(getDishesResponse
+          .tableMenuList[5].categoryDishes[i].dishCalories
+          .toString());
+      selectedDishesCountsArray.add(fastFoodCounterValuArray[i].toString());
+    }
+  }
+
+  getSelectedDishNamesModelClassForUtils =
+      GetSelectedDishNamesModelClassForUtils(
+          selectedDishesCalorieArray: selectedDishesCalorieArray,
+          selectedDishesCountsArray: selectedDishesCountsArray,
+          selectedDishesNamesArray: selectedDishesNamesArray,
+          selectedDishesPricesArray: selectedDishesPricesArray);
+
+  // print(
+  //     "selected items names array is " + selectedDishesNamesArray.toString());
+  // print("selected items prices array is " +
+  //     selectedDishesPricesArray.toString());
+  // print("selected items calories array is " +
+  //     selectedDishesCalorieArray.toString());
+  // print("selected dishes counts array is " +
+  //     selectedDishesCountsArray.toString());
+  // print("saladsCounterValuArray is " +
+  //     widget.saladsCounterValuArray.toString());
+  // print("benyardCounterValuArray is " +
+  //     widget.benyardCounterValuArray.toString());
+  // print("henCounterValuArray is " + widget.henCounterValuArray.toString());
+  // print("seaCounterValuArray is " + widget.seaCounterValuArray.toString());
+  // print("biryaniCounterValuArray is " +
+  //     widget.biryaniCounterValuArray.toString());
+  // print("fastFoodCounterValuArray is " +
+  //     widget.fastFoodCounterValuArray.toString());
+
+  return getSelectedDishNamesModelClassForUtils;
 }
