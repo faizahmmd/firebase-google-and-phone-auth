@@ -76,7 +76,17 @@ class _HomePageState extends State<HomePage> {
             },
             onTapRightIcon: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => CartPage()));
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CartPage(
+                            saladsCounterValuArray: saladsCounterValuArray,
+                            benyardCounterValuArray: benyardCounterValuArray,
+                            henCounterValuArray: henCounterValuArray,
+                            seaCounterValuArray: seaCounterValuArray,
+                            biryaniCounterValuArray: biryaniCounterValuArray,
+                            fastFoodCounterValuArray: fastFoodCounterValuArray,
+                            getDishesResponse: _dishListResponse,
+                          )));
             },
             cartCount: cartCount,
           )
@@ -137,15 +147,9 @@ class _HomePageState extends State<HomePage> {
                                           .tableMenuList[0]
                                           .categoryDishes[index]
                                           .dishImage,
-                                      sar: _dishListResponse
-                                              .tableMenuList[0]
-                                              .categoryDishes[index]
-                                              .dishCurrency
-                                              .toString() +
-                                          " " +
-                                          _dishListResponse.tableMenuList[0]
-                                              .categoryDishes[index].dishPrice
-                                              .toString(),
+                                      sar: _dishListResponse.tableMenuList[0]
+                                          .categoryDishes[index].dishPrice
+                                          .toString(),
                                       calories: _dishListResponse
                                           .tableMenuList[0]
                                           .categoryDishes[index]
@@ -227,15 +231,9 @@ class _HomePageState extends State<HomePage> {
                                           .tableMenuList[1]
                                           .categoryDishes[index]
                                           .dishImage,
-                                      sar: _dishListResponse
-                                              .tableMenuList[1]
-                                              .categoryDishes[index]
-                                              .dishCurrency
-                                              .toString() +
-                                          " " +
-                                          _dishListResponse.tableMenuList[1]
-                                              .categoryDishes[index].dishPrice
-                                              .toString(),
+                                      sar: _dishListResponse.tableMenuList[1]
+                                          .categoryDishes[index].dishPrice
+                                          .toString(),
                                       calories: _dishListResponse
                                           .tableMenuList[1]
                                           .categoryDishes[index]
@@ -318,15 +316,9 @@ class _HomePageState extends State<HomePage> {
                                           .tableMenuList[2]
                                           .categoryDishes[index]
                                           .dishImage,
-                                      sar: _dishListResponse
-                                              .tableMenuList[2]
-                                              .categoryDishes[index]
-                                              .dishCurrency
-                                              .toString() +
-                                          " " +
-                                          _dishListResponse.tableMenuList[2]
-                                              .categoryDishes[index].dishPrice
-                                              .toString(),
+                                      sar: _dishListResponse.tableMenuList[2]
+                                          .categoryDishes[index].dishPrice
+                                          .toString(),
                                       calories: _dishListResponse
                                           .tableMenuList[2]
                                           .categoryDishes[index]
@@ -406,15 +398,9 @@ class _HomePageState extends State<HomePage> {
                                           .tableMenuList[3]
                                           .categoryDishes[index]
                                           .dishImage,
-                                      sar: _dishListResponse
-                                              .tableMenuList[3]
-                                              .categoryDishes[index]
-                                              .dishCurrency
-                                              .toString() +
-                                          " " +
-                                          _dishListResponse.tableMenuList[3]
-                                              .categoryDishes[index].dishPrice
-                                              .toString(),
+                                      sar: _dishListResponse.tableMenuList[3]
+                                          .categoryDishes[index].dishPrice
+                                          .toString(),
                                       calories: _dishListResponse
                                           .tableMenuList[3]
                                           .categoryDishes[index]
@@ -494,15 +480,9 @@ class _HomePageState extends State<HomePage> {
                                           .tableMenuList[4]
                                           .categoryDishes[index]
                                           .dishImage,
-                                      sar: _dishListResponse
-                                              .tableMenuList[4]
-                                              .categoryDishes[index]
-                                              .dishCurrency
-                                              .toString() +
-                                          " " +
-                                          _dishListResponse.tableMenuList[4]
-                                              .categoryDishes[index].dishPrice
-                                              .toString(),
+                                      sar: _dishListResponse.tableMenuList[4]
+                                          .categoryDishes[index].dishPrice
+                                          .toString(),
                                       calories: _dishListResponse
                                           .tableMenuList[4]
                                           .categoryDishes[index]
@@ -585,15 +565,9 @@ class _HomePageState extends State<HomePage> {
                                           .tableMenuList[5]
                                           .categoryDishes[index]
                                           .dishImage,
-                                      sar: _dishListResponse
-                                              .tableMenuList[5]
-                                              .categoryDishes[index]
-                                              .dishCurrency
-                                              .toString() +
-                                          " " +
-                                          _dishListResponse.tableMenuList[5]
-                                              .categoryDishes[index].dishPrice
-                                              .toString(),
+                                      sar: _dishListResponse.tableMenuList[5]
+                                          .categoryDishes[index].dishPrice
+                                          .toString(),
                                       calories: _dishListResponse
                                           .tableMenuList[5]
                                           .categoryDishes[index]

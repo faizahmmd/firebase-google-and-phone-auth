@@ -6,6 +6,21 @@ import 'package:flutter/material.dart';
 import 'home_page_list_view_counter_widget.dart';
 
 class CartPageListViewWidget extends StatefulWidget {
+  String dishName, calorie, dishCount;
+  int totalDishesCount;
+  double price;
+  double priceFinal;
+
+  Function addCounterValue, subtractCounterValue;
+  CartPageListViewWidget(
+      {this.dishName,
+      this.price,
+      this.calorie,
+      this.dishCount,
+      this.totalDishesCount,
+      this.addCounterValue,
+      this.subtractCounterValue,
+      this.priceFinal});
   @override
   _CartPageListViewWidgetState createState() => _CartPageListViewWidgetState();
 }
@@ -42,7 +57,7 @@ class _CartPageListViewWidgetState extends State<CartPageListViewWidget> {
                         width: screenWidth(context, dividedBy: 4.0),
                         //  color: Colors.yellow,
                         child: Text(
-                          "Gobi Munjurian Dry",
+                          widget.dishName,
                           overflow: TextOverflow.visible,
                           style: TextStyle(
                               color: Constants.kitGradients[1].withOpacity(0.9),
@@ -57,12 +72,14 @@ class _CartPageListViewWidgetState extends State<CartPageListViewWidget> {
                         width: screenWidth(context, dividedBy: 4.0),
                         // color: Colors.yellow,
                         child: Text(
-                          "INR 20.00",
+                          "INR " +
+                              sARToINRConversion(widget.price)
+                                  .toStringAsFixed(2),
                           overflow: TextOverflow.visible,
                           style: TextStyle(
-                              color: Constants.kitGradients[1].withOpacity(0.9),
+                              color: Constants.kitGradients[1].withOpacity(0.8),
                               fontSize: 16.0,
-                              fontWeight: FontWeight.w400),
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                       SizedBox(
@@ -70,27 +87,31 @@ class _CartPageListViewWidgetState extends State<CartPageListViewWidget> {
                       ),
                       Container(
                         width: screenWidth(context, dividedBy: 4.0),
-                        //  color: Colors.yellow,
+                        //color: Colors.yellow,
                         child: Text(
-                          "112 calories",
+                          widget.calorie + " calories",
                           overflow: TextOverflow.visible,
                           style: TextStyle(
                               color: Constants.kitGradients[1].withOpacity(0.9),
-                              fontSize: 16.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.w400),
                         ),
                       ),
                     ],
                   ),
                 ),
-                HomePageListViewWidgetCounter(),
+                HomePageListViewWidgetCounter(
+                  counterValue: int.parse(widget.dishCount),
+                  addCounterValue: widget.addCounterValue,
+                  subtractCounterValue: widget.subtractCounterValue,
+                ),
                 Container(
                   width: screenWidth(context, dividedBy: 6.2),
                   height: screenHeight(context, dividedBy: 25.0),
                   // color: Colors.yellow,
                   child: FittedBox(
                     child: Text(
-                      "INR 20.00",
+                      "INR " + widget.priceFinal.toStringAsFixed(2),
                       overflow: TextOverflow.visible,
                       style: TextStyle(
                         color: Constants.kitGradients[1].withOpacity(0.9),

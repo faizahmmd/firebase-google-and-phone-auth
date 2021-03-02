@@ -56,7 +56,9 @@ class _HomePageListViewBodyDishDetailsState
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.sar,
+                  "INR " +
+                      sARToINRConversion(double.parse(widget.sar))
+                          .toStringAsFixed(2),
                   style: TextStyle(
                       color: Constants.kitGradients[2],
                       fontSize: 16.0,

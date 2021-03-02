@@ -162,3 +162,66 @@ int cartItemsTotal(List<int> a, List<int> b, List<int> c, List<int> d,
   f.forEach((e) => sum6 += e);
   return (sum1 + sum2 + sum3 + sum4 + sum5 + sum6);
 }
+
+int totalDishesForCartPage(List<int> a, List<int> b, List<int> c, List<int> d,
+    List<int> e, List<int> f) {
+  int sum1 = 0;
+  int sum2 = 0;
+  int sum3 = 0;
+  int sum4 = 0;
+  int sum5 = 0;
+  int sum6 = 0;
+  for (int i = 0; i < a.length; i++) {
+    if (a[i] > 0) {
+      sum1 = sum1 + 1;
+    }
+  }
+  for (int i = 0; i < b.length; i++) {
+    if (b[i] > 0) {
+      sum2 = sum2 + 1;
+    }
+  }
+  for (int i = 0; i < c.length; i++) {
+    if (c[i] > 0) {
+      sum3 = sum3 + 1;
+    }
+  }
+  for (int i = 0; i < d.length; i++) {
+    if (d[i] > 0) {
+      sum4 = sum4 + 1;
+    }
+  }
+  for (int i = 0; i < e.length; i++) {
+    if (e[i] > 0) {
+      sum5 = sum5 + 1;
+    }
+  }
+  for (int i = 0; i < f.length; i++) {
+    if (f[i] > 0) {
+      sum6 = sum6 + 1;
+    }
+  }
+  return (sum1 + sum2 + sum3 + sum4 + sum5 + sum6);
+}
+
+double sARToINRConversion(double price) {
+  return (price * 19.55);
+}
+
+double getTotalPrice(List<double> priceArray, List<String> itemsCountArray) {
+  double sum = 0;
+  List<double> returnArray = [];
+  for (int i = 0; i < priceArray.length; i++) {
+    returnArray.add((priceArray[i]) * (double.parse(itemsCountArray[i])));
+  }
+  returnArray.forEach((e) => sum += e);
+  sum = sum * 19.5;
+  return sum;
+}
+
+int totalSumOfArray(List<int> a) {
+  int sum = 0;
+  a.forEach((e) => sum += e);
+
+  return sum;
+}
