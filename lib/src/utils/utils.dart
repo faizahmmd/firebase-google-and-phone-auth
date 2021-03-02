@@ -225,3 +225,81 @@ int totalSumOfArray(List<int> a) {
 
   return sum;
 }
+
+List<List<int>> counterValueCalculations(event) {
+  List<int> saladsCounterValuArray = [];
+  List<int> benyardCounterValuArray = [];
+  List<int> henCounterValuArray = [];
+  List<int> seaCounterValuArray = [];
+  List<int> biryaniCounterValuArray = [];
+  List<int> fastFoodCounterValuArray = [];
+
+  List<List<int>> arrayForReturn = [];
+
+  saladsCounterValuArray.clear();
+  benyardCounterValuArray.clear();
+  henCounterValuArray.clear();
+  seaCounterValuArray.clear();
+  biryaniCounterValuArray.clear();
+  fastFoodCounterValuArray.clear();
+
+  for (int i = 0; i < event.tableMenuList.length; i++) {
+    if (event.tableMenuList[i].menuCategory == "Salads and Soup") {
+      for (int j = 0; j < event.tableMenuList[i].categoryDishes.length; j++) {
+        saladsCounterValuArray.add(0);
+      }
+    }
+  }
+  for (int i = 0; i < event.tableMenuList.length; i++) {
+    if (event.tableMenuList[i].menuCategory == "From The Barnyard") {
+      for (int j = 0; j < event.tableMenuList[i].categoryDishes.length; j++) {
+        benyardCounterValuArray.add(0);
+      }
+    }
+  }
+  for (int i = 0; i < event.tableMenuList.length; i++) {
+    if (event.tableMenuList[i].menuCategory == "From the Hen House") {
+      for (int j = 0; j < event.tableMenuList[i].categoryDishes.length; j++) {
+        henCounterValuArray.add(0);
+      }
+    }
+  }
+  for (int i = 0; i < event.tableMenuList.length; i++) {
+    if (event.tableMenuList[i].menuCategory == "Fresh From The Sea") {
+      for (int j = 0; j < event.tableMenuList[i].categoryDishes.length; j++) {
+        seaCounterValuArray.add(0);
+      }
+    }
+  }
+  for (int i = 0; i < event.tableMenuList.length; i++) {
+    if (event.tableMenuList[i].menuCategory == "Biryani") {
+      for (int j = 0; j < event.tableMenuList[i].categoryDishes.length; j++) {
+        biryaniCounterValuArray.add(0);
+      }
+    }
+  }
+  for (int i = 0; i < event.tableMenuList.length; i++) {
+    if (event.tableMenuList[i].menuCategory == "Fast Food") {
+      for (int j = 0; j < event.tableMenuList[i].categoryDishes.length; j++) {
+        fastFoodCounterValuArray.add(0);
+      }
+    }
+  }
+
+  arrayForReturn = [
+    saladsCounterValuArray,
+    benyardCounterValuArray,
+    henCounterValuArray,
+    seaCounterValuArray,
+    biryaniCounterValuArray,
+    fastFoodCounterValuArray
+  ];
+
+  // print("saladsCounterValuArray is " + saladsCounterValuArray.toString());
+  // print("benyardCounterValuArray is " + benyardCounterValuArray.toString());
+  // print("henCounterValuArray is " + henCounterValuArray.toString());
+  // print("seaCounterValuArray is " + seaCounterValuArray.toString());
+  // print("biryaniCounterValuArray is " + biryaniCounterValuArray.toString());
+  // print("fastFoodCounterValuArray is " + fastFoodCounterValuArray.toString());
+  return arrayForReturn;
+}

@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:demomachinetest/src/models/get_dish_list_response.dart';
 import 'package:demomachinetest/src/models/state.dart';
 import 'package:demomachinetest/src/utils/constants.dart';
 import 'package:demomachinetest/src/utils/object_factory.dart';
 import 'package:demomachinetest/src/utils/validators.dart';
-
 import 'base_bloc.dart';
 
 /// api response of login is managed by AuthBloc
