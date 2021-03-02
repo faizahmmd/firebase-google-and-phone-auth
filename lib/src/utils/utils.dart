@@ -212,10 +212,10 @@ double getTotalPrice(List<double> priceArray, List<String> itemsCountArray) {
   double sum = 0;
   List<double> returnArray = [];
   for (int i = 0; i < priceArray.length; i++) {
-    returnArray.add((priceArray[i]) * (double.parse(itemsCountArray[i])));
+    returnArray
+        .add(((priceArray[i]) * 19.55) * (double.parse(itemsCountArray[i])));
   }
   returnArray.forEach((e) => sum += e);
-  sum = sum * 19.5;
   return sum;
 }
 

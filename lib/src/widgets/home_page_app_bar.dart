@@ -37,6 +37,7 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
             Container(
               // height: screenHeight(context, dividedBy: 15.0),
               child: IconButton(
+                  //color: Colors.yellow,
                   icon: SvgPicture.asset(
                     'assets/icons/menu.svg',
                     color: Constants.kitGradients[5],
